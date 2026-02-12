@@ -738,9 +738,8 @@ function revelarSections(){
   });
 }
 
-window.addEventListener("scroll", ()=>{
-  requestAnimationFrame(revelarSections);
-});
+window.addEventListener("scroll", revelarSections);
+window.addEventListener("load", revelarSections);
 
 
 
@@ -807,3 +806,4 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
