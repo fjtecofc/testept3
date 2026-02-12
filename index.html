@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FJTEC - Internet Fibra Óptica</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+background:#050c1a;
+color:#fff;
+overflow-x:hidden;
+}
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+header{
+padding:20px;
+text-align:center;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+}
+header img{height:70px}
+
+section{
+padding:80px 20px;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h1,h2{
+font-family:'Orbitron',sans-serif;
+}
+
+.hero{
+padding:120px 20px 60px 20px;
+}
+.hero p{
+margin-top:15px;
+font-size:18px;
+opacity:0.9;
+}
+
+.btn{
+background:#00bfff;
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+font-weight:600;
+transition:0.3s;
+box-shadow:0 0 20px #00bfff;
+display:inline-block;
+cursor:pointer;
+margin-top:15px;
+}
+.btn:hover{
+transform:scale(1.08);
+background:#0099ff;
+}
+
+.clients{
+margin-top:30px;
+font-size:22px;
+opacity:0.9;
+}
+.clients span{
+font-size:40px;
+color:#00bfff;
+font-weight:700;
+}
+
+/* PLANOS */
+
+.plans{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+gap:30px;
+margin-top:50px;
+}
+
+.plan{
+background:linear-gradient(145deg,#0a1f3d,#0f2c5c);
+padding:35px;
+border-radius:25px;
+width:260px;
+transition:0.4s;
+position:relative;
+box-shadow:0 0 25px rgba(0,191,255,0.3);
+}
+
+.plan:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px #00bfff;
+}
+
+.plan.popular{
+width:330px;
+transform:scale(1.15);
+border:2px solid #00bfff;
+box-shadow:0 0 70px #00bfff;
+z-index:2;
+}
+
+.badge{
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%);
+background:#00bfff;
+padding:6px 18px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+color:#000;
+box-shadow:0 0 20px #00bfff;
+}
+
+.price{
+font-size:28px;
+color:#00bfff;
+margin:15px 0;
+}
+
+.plan p{
+font-size:14px;
+opacity:0.85;
+margin-bottom:12px;
+}
+
+/* AVALIAÇÕES */
+
+.slider{
+max-width:700px;
+margin:40px auto;
+position:relative;
+overflow:hidden;
+}
+
+.slide{display:none;}
+.slide.active{
+display:block;
+animation:fade 0.8s;
+}
+
+.slider img{
+width:100%;
+border-radius:15px;
+}
+
+.slider-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.slider-buttons button{
+background:#00bfff;
+border:none;
+padding:10px 18px;
+border-radius:30px;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 15px #00bfff;
+transition:0.3s;
+}
+.slider-buttons button:hover{
+background:#0099ff;
+transform:scale(1.1);
+}
+
+/* CONTATO */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+max-width:1000px;
+margin:auto;
+}
+
+iframe{
+width:100%;
+height:350px;
+border:none;
+border-radius:20px;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25d366;
+color:#fff;
+width:65px;
+height:65px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 0 20px #25d366;
+z-index:999;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+@media(max-width:768px){
+.contact-grid{grid-template-columns:1fr}
+.plan.popular{transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<header>
+<img src="logo.png" alt="FJTEC Logo">
+</header>
+
+<section class="hero">
+<h1>A Internet Mais Estável da Região</h1>
+<p>Mais de 10 anos conectando famílias e empresas com fibra 100% dedicada.</p>
+
+<div class="clients">
+Mais de <span id="clientes">0</span> clientes conectados 🚀
+</div>
+
+<a class="btn" href="https://wa.me/5511979957192?text=Quero%20instalar%20internet%20fibra">
+Falar no WhatsApp
+</a>
+</section>
+
+<section>
+<h2>Nossos Planos</h2>
+<p style="opacity:0.8;margin-top:10px;">
+Escolha o plano ideal e comece hoje mesmo
+</p>
+
+<div class="plans">
+
+<div class="plan">
+<h3>STANDARD - 60 Mbps</h3>
+<div class="price">R$69,99</div>
+<p>Ideal para uso básico.</p>
+<a class="btn" onclick="contratar('60 Mbps')">Assinar Agora</a>
+</div>
+
+<div class="plan popular">
+<div class="badge">🔥 MAIS VENDIDO</div>
+<h3>PLANO VIP - 500 Mbps</h3>
+<div class="price">R$99,99</div>
+<p>Alta performance para jogos, streaming 4K e trabalho remoto.</p>
+<p><strong>Melhor custo-benefício da região.</strong></p>
+<a class="btn" onclick="contratar('500 Mbps')">Assinar Agora</a>
+</div>
+
+<div class="plan">
+<h3>PLANO BÁSICO - 80 Mbps</h3>
+<div class="price">R$89,99</div>
+<p>Perfeito para famílias conectadas.</p>
+<a class="btn" onclick="contratar('80 Mbps')">Assinar Agora</a>
+</div>
+
+<div class="plan">
+<h3>PLANO LUXO - 700 Mbps</h3>
+<div class="price">R$169,99</div>
+<p>Máxima velocidade para quem exige o melhor.</p>
+<a class="btn" onclick="contratar('700 Mbps')">Assinar Agora</a>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>
+Instalação rápida • Suporte ágil • Sem dor de cabeça • Atendimento 100% humano
+</h2>
+</section>
+
+<section>
+<h2>Desde 2015 Conectando Pessoas</h2>
+
+<div style="max-width:800px;margin:auto;line-height:1.8;opacity:0.9;margin-top:30px;">
+
+A FJTEC nasceu em 2015 com o propósito de oferecer internet fibra óptica de verdade para nossa região.
+
+Construímos nossa reputação com estabilidade real, suporte técnico eficiente e atendimento humanizado.
+
+Hoje são mais de <strong>1.600 clientes ativos</strong> que confiam na nossa estrutura 100% fibra.
+
+✔ Conexão estável  
+✔ Baixa latência  
+✔ Streaming sem travamentos  
+✔ Atendimento próximo e rápido  
+
+Nosso compromisso é simples: entregar a internet que você realmente paga para ter.
+
+</div>
+</section>
+
+<section>
+<h2>Avaliações Reais dos Clientes</h2>
+
+<div class="slider">
+<div class="slide active"><img src="avaliacao1.png"></div>
+<div class="slide"><img src="avaliacao2.png"></div>
+<div class="slide"><img src="avaliacao3.png"></div>
+<div class="slide"><img src="avaliacao4.png"></div>
+<div class="slide"><img src="avaliacao5.png"></div>
+<div class="slide"><img src="avaliacao6.png"></div>
+<div class="slide"><img src="avaliacao7.png"></div>
+<div class="slide"><img src="avaliacao8.png"></div>
+<div class="slide"><img src="avaliacao9.png"></div>
+<div class="slide"><img src="avaliacao10.png"></div>
+</div>
+
+<div class="slider-buttons">
+<button onclick="anterior()">◀ Anterior</button>
+<button onclick="proximo()">Próximo ▶</button>
+</div>
+</section>
+
+<section>
+<h2>Contato & Localização</h2>
+
+<div class="contact-grid">
+<div>
+<p><strong>Endereço:</strong><br>
+Av. Alexios Jafet, 2494 - Vila Aurora<br>
+São Paulo - SP</p>
+
+<p><strong>Telefones:</strong><br>
+(11) 97995-7192<br>
+(11) 3941-1913</p>
+
+<p><strong>Email:</strong><br>
+contato@fjtec.com.br</p>
+
+<a class="btn" href="https://wa.me/5511979957192?text=Quero%20instalar%20internet">
+Chamar no WhatsApp
+</a>
+</div>
+
+<div>
+<iframe src="https://www.google.com/maps?q=FJTEC%20Servi%C3%A7os%20Av.%20Alexios%20Jafet%202494%20S%C3%A3o%20Paulo&output=embed"></iframe>
+
+<a class="btn" style="margin-top:20px;"
+href="https://www.google.com/maps/dir/?api=1&destination=FJTEC%20Servi%C3%A7os%20Av.%20Alexios%20Jafet%202494%20S%C3%A3o%20Paulo"
+target="_blank">
+Como Chegar (Rotas)
+</a>
+</div>
+</div>
+</section>
+
+<a class="whatsapp-float" href="https://wa.me/5511979957192?text=Quero%20contratar%20internet">☎</a>
+
+<script>
+function contratar(plano){
+window.open("https://wa.me/5511979957192?text=Quero%20contratar%20o%20plano%20de%20"+plano,"_blank");
+}
+
+/* CONTADOR CLIENTES */
+let clientes=0;
+let alvo=1600;
+let contadorClientes=document.getElementById("clientes");
+let intervaloClientes=setInterval(()=>{
+clientes+=20;
+contadorClientes.innerText=clientes;
+if(clientes>=alvo){
+contadorClientes.innerText="1.600";
+clearInterval(intervaloClientes);
+}
+},20);
+
+/* SLIDER */
+let slideIndex=0;
+const slides=document.querySelectorAll(".slide");
+
+function mostrarSlide(i){
+slides.forEach(s=>s.classList.remove("active"));
+slides[i].classList.add("active");
+}
+
+function proximo(){
+slideIndex=(slideIndex+1)%slides.length;
+mostrarSlide(slideIndex);
+}
+
+function anterior(){
+slideIndex=(slideIndex-1+slides.length)%slides.length;
+mostrarSlide(slideIndex);
+}
+
+setInterval(proximo,5000);
+
+/* SCROLL */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* PARTICLES */
+particlesJS("particles-js",{
+"particles":{"number":{"value":60},"color":{"value":"#00bfff"},"shape":{"type":"circle"},"opacity":{"value":0.5},"size":{"value":3},"line_linked":{"enable":true,"distance":150,"color":"#00bfff","opacity":0.4,"width":1},"move":{"enable":true,"speed":2}},
+"interactivity":{"events":{"onhover":{"enable":true,"mode":"repulse"}}}
+});
+</script>
+
+</body>
+</html>
