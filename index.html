@@ -562,12 +562,13 @@ Como Chegar (Rotas)
 
 <div class="faq-item">
 <h3>O modem está incluso?</h3>
-<p>Sim! Todos os nossos planos incluem modem moderno com tecnologia 5G e alta performance.</p>
+<p>Sim! Todos os nossos planos incluem modem moderno de alta performance.
+Clientes que contratam 500mbps ou mais o aparelho inclui tecnologia 5G. </p>
 </div>
 
 <div class="faq-item">
 <h3>A internet é realmente fibra óptica?</h3>
-<p>Sim, trabalhamos com fibra óptica 100% dedicada, garantindo estabilidade, baixa latência e alta velocidade real.</p>
+<p>Sim, trabalhamos com fibra óptica, garantindo estabilidade, baixa latência e alta velocidade real.</p>
 </div>
 
 <div class="faq-item">
@@ -677,22 +678,18 @@ let textoPessoas = "";
 
 if(pessoas === 1){
 plano = "60 Mbps";
-textoPessoas = "1 pessoa";
 explicacao = "Perfeito para uso individual com redes sociais, vídeos em HD, chamadas de vídeo e navegação diária com estabilidade total.";
 }
 else if(pessoas === 2){
 plano = "80 Mbps";
-textoPessoas = "2 pessoas";
 explicacao = "Ideal para duas pessoas utilizando streaming, trabalho remoto e múltiplos dispositivos ao mesmo tempo sem travamentos.";
 }
 else if(pessoas === "3-4"){
 plano = "500 Mbps";
-textoPessoas = "3 ou 4 pessoas";
 explicacao = "Excelente para famílias com vários dispositivos conectados, streaming em 4K, jogos online e downloads simultâneos com máxima estabilidade.";
 }
 else{
 plano = "700 Mbps";
-textoPessoas = "5 ou mais pessoas";
 explicacao = "Recomendado para casas com muitos dispositivos, gamers, smart TVs e uso intenso simultâneo, garantindo performance máxima e latência baixa.";
 }
 
@@ -700,10 +697,6 @@ resultado.innerHTML = `
 <h3 style="color:#00bfff;margin-bottom:10px;">
 📶 Plano recomendado: ${plano}
 </h3>
-
-<p style="margin-bottom:15px;">
-Baseado em <strong>${textoPessoas}</strong> utilizando internet na residência.
-</p>
 
 <p>${explicacao}</p>
 
