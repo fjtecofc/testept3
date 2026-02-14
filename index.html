@@ -82,17 +82,6 @@ transform:scale(1.08);
 background:#0099ff;
 }
 
-.clients{
-margin-top:30px;
-font-size:22px;
-opacity:0.9;
-}
-.clients span{
-font-size:40px;
-color:#00bfff;
-font-weight:700;
-}
-
 /* PLANOS */
 
 .plans{
@@ -397,9 +386,6 @@ display:block;
 <h1>A Internet Mais Estável da Região</h1>
 <p>Mais de 10 anos conectando famílias e empresas com fibra 100% dedicada.</p>
 
-<div class="clients">
-Mais de <span id="clientes">0</span> clientes conectados 🚀
-</div>
 
 <a class="btn" href="https://wa.me/5511979957192?text=Quero%20instalar%20internet%20fibra">
 Falar no WhatsApp
@@ -608,43 +594,6 @@ function contratar(plano){
 
   const novaAba = window.open(url, "_blank");
   if (novaAba) novaAba.opener = null; // 🔒 proteção extra
-}
-
-
-/* CONTADOR CLIENTES */
-const contador = document.getElementById("clientes");
-
-let alvoInicial = 1600;
-let valorAtual = 0;
-let duracao = 3000; // 3 segundos para chegar em 1600
-let inicioTempo = null;
-
-/* ANIMAÇÃO SUAVE ATÉ 1600 */
-function animar(timestamp){
-  if(!inicioTempo) inicioTempo = timestamp;
-
-  let progresso = timestamp - inicioTempo;
-  let percentual = progresso / duracao;
-
-  valorAtual = Math.min(Math.floor(percentual * alvoInicial), alvoInicial);
-
-  contador.innerText = valorAtual.toLocaleString("pt-BR");
-
-  if(progresso < duracao){
-    requestAnimationFrame(animar);
-  } else {
-    iniciarCrescimentoLento();
-  }
-}
-
-requestAnimationFrame(animar);
-
-/* DEPOIS CONTINUA +2 A CADA 4 SEGUNDOS */
-function iniciarCrescimentoLento(){
-  intervaloLento = setInterval(()=>{
-    valorAtual++;
-    contador.innerText = valorAtual.toLocaleString("pt-BR");
-  }, 4000);
 }
 
 /* SLIDER */
