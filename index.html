@@ -7,7 +7,89 @@
 <meta http-equiv="Content-Security-Policy" 
 content="default-src 'self' https:; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com;">
 
-<title>FJTEC - Internet Fibra Óptica</title>
+<title>Internet Fibra em São Paulo | Instalação Rápida 24h + Suporte Humano | FJTEC</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0d6efd">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "InternetServiceProvider",
+  "name": "FJTEC Internet Fibra",
+  "logo": "https://fjtec.com.br/logo.webp",
+  "image": "https://fjtec.com.br/logo.webp",
+  "url": "https://fjtec.com.br",
+  "telephone": "+5511979957192",
+  
+  "contactPoint": {
+  "@type": "ContactPoint",
+  "telephone": "+55-11-97995-7192",
+  "contactType": "customer service",
+  "areaServed": "BR",
+  "availableLanguage": "Portuguese"
+}
+
+"openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Alexios Jafet, 2494",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "05186-005",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.4358794,
+    "longitude": -46.7532779
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "São Paulo"
+	
+  },
+  "priceRange": "$$"
+}
+</script>
+
+<meta name="description" content="Internet fibra óptica em São Paulo com alta estabilidade e suporte humano. Planos de 60, 500 megas até 700 Mega com instalação rápida na Vila Aurora,Perus, Jaragua, Ipanema, Chica Luiza, Chacara Jaragua e região.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Internet Fibra em São Paulo | Instalação Rápida 24h - FJTEC">
+<meta property="og:description" content="Internet fibra óptica em São Paulo com suporte humano e instalação em até 24h.">
+<meta property="og:image" content="https://fjtec.com.br/logo.webp">
+<meta property="og:url" content="https://fjtec.com.br">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+
+<meta name="keywords" content="internet fibra são paulo, provedor fibra vila aurora, internet rápida são paulo, fjtec internet fibra, provedor fibra ipanema, provedor fibra perus, provedor fibra jaragua, provedor fibra chica luiza, provedor fibra chacara jaragua">
+
+<meta name="author" content="FJTEC Internet Fibra">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="São Paulo">
+<meta name="geo.position" content="-23.4358794;-46.7532779">
+<meta name="ICBM" content="-23.4358794, -46.7532779">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -82,52 +164,81 @@ transform:scale(1.08);
 background:#0099ff;
 }
 
-/* PLANOS */
-
+/* CARROSSEL DE PLANOS */
 .plans{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-align-items:center;
-gap:30px;
-margin-top:50px;
+position:relative;
+max-width:1100px;
+margin:50px auto 0;
+overflow:visible; /* evita cortar o zoom */
+padding:40px 0; /* espaço para o efeito */
+}
+
+.plans-track{
+  display:flex;
+  gap:30px;
+  transition:transform .5s ease;
+  padding:0 calc(50% - 160px); /* 320px / 2 */
 }
 
 .plan{
-background:linear-gradient(145deg,#0a1f3d,#0f2c5c);
-padding:35px;
-border-radius:25px;
-width:260px;
+  flex:0 0 320px; /* largura fixa real do card */
+  opacity:0.4;
+  transform:scale(0.95);
 transition:0.4s;
+cursor:grab;
+user-select:none;
 position:relative;
-box-shadow:0 0 25px rgba(0,191,255,0.3);
+padding-top:25px; /* espaço para o badge flutuar */
 }
 
-.plan:hover{
-transform:translateY(-12px);
-box-shadow:0 0 40px #00bfff;
+.plan.active{
+opacity:1;
+transform:scale(1.02); /* zoom leve sem cortar */
 }
 
 .plan.popular{
-width:330px;
-transform:scale(1.15);
 border:2px solid #00bfff;
 box-shadow:0 0 70px #00bfff;
 z-index:2;
 }
 
+.carousel-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#00bfff;
+border:none;
+width:50px;
+height:50px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+z-index:5;
+box-shadow:0 0 20px #00bfff;
+transition:0.3s;
+}
+
+.carousel-arrow:hover{
+background:#0099ff;
+transform:translateY(-50%) scale(1.1);
+}
+
+.arrow-left{ left:calc(50% - 230px); }
+.arrow-right{ right:calc(50% - 230px); }
+
 .badge{
 position:absolute;
-top:-15px;
+top:-35px; /* sobe mais */
 left:50%;
 transform:translateX(-50%);
 background:#00bfff;
-padding:6px 18px;
+padding:8px 22px;
 border-radius:30px;
 font-size:12px;
 font-weight:700;
 color:#000;
-box-shadow:0 0 20px #00bfff;
+box-shadow:0 0 25px #00bfff;
+z-index:10; /* garante que fique acima do card */
 }
 
 .price{
@@ -371,10 +482,46 @@ opacity:0.9;
 display:block;
 }
 
+.cta-top{
+position:fixed;
+top:110px; /* altura do header + respiro */
+left:0;
+width:100%;
+background:#00bfff;
+color:#fff;
+text-align:center;
+padding:12px;
+font-weight:600;
+z-index:999;
+text-decoration:none;
+box-shadow:0 0 15px rgba(0,191,255,0.6);
+display:none;
+animation:pulseCTA 2s infinite;
+animation-delay:3s;
+}
+
+@media(max-width:768px){
+.cta-top{
+display:block;
+}
+}
+
+@keyframes pulseCTA{
+0%{ transform:scale(1); box-shadow:0 0 10px rgba(0,191,255,0.6); }
+50%{ transform:scale(1.05); box-shadow:0 0 25px rgba(0,191,255,0.9); }
+100%{ transform:scale(1); box-shadow:0 0 10px rgba(0,191,255,0.6); }
+
+}
+
 </style>
 </head>
 
 <body>
+
+<a href="https://wa.me/5511979957192?text=Quero%20instalar%20internet" 
+   class="cta-top">
+🚀 Instalação em até 24h • Chamar no WhatsApp
+</a>
 
 <div id="particles-js"></div>
 
@@ -400,37 +547,55 @@ Escolha o plano ideal e comece hoje mesmo
 
 <div class="plans">
 
-<div class="plan">
-<h3>STANDARD - 60 Mbps</h3>
-<div class="price">R$69,99</div>
-<p>Ideal para uso básico.</p>
-<a class="btn" onclick="contratar('60 Mbps')">Assinar Agora</a>
-</div>
+  <button class="carousel-arrow arrow-left" onclick="moverPlano(-1)">❮</button>
 
-<div class="plan popular">
-<div class="badge">🔥 MAIS VENDIDO</div>
-<h3>PLANO VIP - 500 Mbps</h3>
-<div class="price">R$99,99</div>
-<p>Alta performance para jogos, streaming 4K e trabalho remoto.</p>
-<p><strong>Melhor custo-benefício da região.</strong></p>
-<a class="btn" onclick="contratar('500 Mbps')">Assinar Agora</a>
-</div>
+  <div class="plans-track" id="plansTrack">
 
-<div class="plan">
-<h3>PLANO BÁSICO - 80 Mbps</h3>
-<div class="price">R$89,99</div>
-<p>Perfeito para famílias conectadas.</p>
-<a class="btn" onclick="contratar('80 Mbps')">Assinar Agora</a>
-</div>
+    <div class="plan">
+      <h3>STANDARD - 60 Mbps</h3>
+      <div class="price">R$69,99</div>
+      <p>Ideal para uso básico.</p>
+      <a class="btn" onclick="contratar('60 Mbps')">Assinar Agora</a>
+    </div>
 
-<div class="plan">
-<h3>PLANO LUXO - 700 Mbps</h3>
-<div class="price">R$169,99</div>
-<p>Máxima velocidade para quem exige o melhor.</p>
-<a class="btn" onclick="contratar('700 Mbps')">Assinar Agora</a>
-</div>
+    <div class="plan">
+      <h3>PLANO BÁSICO - 80 Mbps</h3>
+      <div class="price">R$89,99</div>
+      <p>Perfeito para famílias conectadas.</p>
+      <a class="btn" onclick="contratar('80 Mbps')">Assinar Agora</a>
+    </div>
 
-</div>
+    <div class="plan popular active">
+      <div class="badge">🔥 MAIS VENDIDO</div>
+      <h3>PLANO VIP - 500 Mbps</h3>
+      <div class="price">R$99,99</div>
+      <p>Alta performance para jogos, streaming 4K e trabalho remoto.</p>
+      <p><strong>Plano preferido dos clientes exigentes.</strong></p>
+      <p style="color:#00bfff;font-weight:600;">✔ Instalação mais solicitada da semana</p>
+      <a class="btn" onclick="contratar('500 Mbps')">Assinar Agora</a>
+    </div>
+
+    <div class="plan">
+      <div class="badge">⚡ OFERTA LIMITADA</div>
+      <h3>PLANO ULTRA - 600 Mbps</h3>
+      <div class="price">R$119,99</div>
+      <p>Velocidade exclusiva promocional disponível apenas pelo site.</p>
+      <p style="color:#00bfff;font-weight:600;">🚀 Upgrade ideal para quem quer máximo desempenho</p>
+      <a class="btn" onclick="contratar('600 Mbps')">Assinar Agora</a>
+    </div>
+
+    <div class="plan">
+      <h3>PLANO LUXO - 700 Mbps</h3>
+      <div class="price">R$169,99</div>
+      <p>Máxima velocidade para quem exige o melhor.</p>
+      <a class="btn" onclick="contratar('700 Mbps')">Assinar Agora</a>
+    </div>
+
+  </div> <!-- FIM plans-track -->
+
+  <button class="carousel-arrow arrow-right" onclick="moverPlano(1)">❯</button>
+
+</div> <!-- FIM plans -->
 </section>
 
 <section class="simulador">
@@ -527,7 +692,7 @@ contato@fjtec.com.br</p>
 
 <div>
 <iframe 
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.681235683103!2d-46.75327790000001!3d-23.435879399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2! 1s0x94cefc874545ea99%3A0x486e83e99a6b09d6!2sFJTEC%20INTERNET%20FIBRA!5e0!3m2!1spt-BR!2sbr!4v1770915789289!5m2!1spt-BR!2sbr"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.681235683103!2d-46.75327790000001!3d-23.435879399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cefc874545ea99%3A0x486e83e99a6b09d6!2sFJTEC%20INTERNET%20FIBRA!5e0!3m2!1spt-BR!2sbr!4v1770915789289!5m2!1spt-BR!2sbr"
 allowfullscreen
 loading="lazy"
 referrerpolicy="no-referrer-when-downgrade">
@@ -587,6 +752,61 @@ Clientes que contratam 500mbps ou mais o aparelho inclui tecnologia 5G. </p>
 
 <script>
 
+/* CARROSSEL LOOP SUAVE (SEM CLONES) */
+const track = document.getElementById("plansTrack");
+let planos = Array.from(document.querySelectorAll(".plan"));
+let indexPlano = 2; // começa no plano central (500mbps)
+
+/* SWIPE MOBILE + DRAG MOUSE */
+let startX = 0;
+let isDown = false;
+
+track.addEventListener("mousedown", e=>{
+  isDown = true;
+  startX = e.pageX;
+});
+
+track.addEventListener("mouseup", e=>{
+  if(!isDown) return;
+  let diff = e.pageX - startX;
+  if(diff > 50) moverPlano(-1);
+  if(diff < -50) moverPlano(1);
+  isDown = false;
+});
+
+track.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", e=>{
+  let diff = e.changedTouches[0].clientX - startX;
+  if(diff > 50) moverPlano(-1);
+  if(diff < -50) moverPlano(1);
+});
+
+function atualizarCarousel(){
+  planos.forEach(p=>p.classList.remove("active"));
+  if(planos[indexPlano]){
+    planos[indexPlano].classList.add("active");
+  }
+
+  const offset = planos[indexPlano].offsetLeft - (track.parentElement.clientWidth / 2) + (planos[indexPlano].clientWidth / 2);
+  track.style.transform = `translateX(${-offset}px)`;
+}
+
+function moverPlano(direcao){
+  indexPlano += direcao;
+
+  if(indexPlano < 0){
+    indexPlano = planos.length - 1;
+  }
+  if(indexPlano >= planos.length){
+    indexPlano = 0;
+  }
+
+  atualizarCarousel();
+}
+
 
 function contratar(plano){
   const mensagem = encodeURIComponent("Quero contratar o plano de " + plano);
@@ -634,7 +854,7 @@ plano = "80 Mbps";
 explicacao = "Ideal para duas pessoas utilizando streaming, trabalho remoto e múltiplos dispositivos ao mesmo tempo sem travamentos.";
 }
 else if(pessoas === "3-4"){
-plano = "500 Mbps";
+plano = "500 Mbps ou 600 Mbps";
 explicacao = "Excelente para famílias com vários dispositivos conectados, streaming em 4K, jogos online e downloads simultâneos com máxima estabilidade.";
 }
 else{
@@ -681,7 +901,11 @@ function revelarSections(){
 }
 
 window.addEventListener("scroll", revelarSections);
-window.addEventListener("load", revelarSections);
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    atualizarCarousel();
+  });
+});
 
 
 /* PARTICLES */
@@ -743,8 +967,8 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
+
 </script>
 
 </body>
 </html>
-
