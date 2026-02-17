@@ -177,20 +177,19 @@ padding:40px 0; /* espaço para o efeito */
 
 .plans-track{
   display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:30px;
-  transition:transform .5s ease;
-  padding:0 calc(50% - 160px); /* 320px / 2 */
+  padding:0;
+  transform:none !important;
 }
 
 .plan{
-  flex:0 0 320px; /* largura fixa real do card */
-  opacity:0.4;
-  transform:scale(0.95);
-transition:0.4s;
+  flex:0 0 320px;
+  opacity:1;
+  transform:scale(1);
 cursor:grab;
 user-select:none;
-position:relative;
-padding-top:25px; /* espaço para o badge flutuar */
 }
 
 .plan.active{
@@ -204,29 +203,12 @@ box-shadow:0 0 70px #00bfff;
 z-index:2;
 }
 
-.carousel-arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#00bfff;
-border:none;
-width:50px;
-height:50px;
-border-radius:50%;
-font-size:22px;
-cursor:pointer;
-z-index:5;
-box-shadow:0 0 20px #00bfff;
-transition:0.3s;
+@media(max-width:768px){
+  .plans-track{
+    flex-direction:column;
+    align-items:center;
+  }
 }
-
-.carousel-arrow:hover{
-background:#0099ff;
-transform:translateY(-50%) scale(1.1);
-}
-
-.arrow-left{ left:calc(50% - 230px); }
-.arrow-right{ right:calc(50% - 230px); }
 
 .badge{
 position:absolute;
@@ -484,37 +466,6 @@ opacity:0.9;
 display:block;
 }
 
-.cta-top{
-position:fixed;
-top:110px; /* altura do header + respiro */
-left:0;
-width:100%;
-background:#00bfff;
-color:#fff;
-text-align:center;
-padding:12px;
-font-weight:600;
-z-index:999;
-text-decoration:none;
-box-shadow:0 0 15px rgba(0,191,255,0.6);
-display:none;
-animation:pulseCTA 2s infinite;
-animation-delay:3s;
-}
-
-@media(max-width:768px){
-.cta-top{
-display:block;
-}
-}
-
-@keyframes pulseCTA{
-0%{ transform:scale(1); box-shadow:0 0 10px rgba(0,191,255,0.6); }
-50%{ transform:scale(1.05); box-shadow:0 0 25px rgba(0,191,255,0.9); }
-100%{ transform:scale(1); box-shadow:0 0 10px rgba(0,191,255,0.6); }
-
-}
-
 </style>
 </head>
 
@@ -544,55 +495,50 @@ Escolha o plano ideal e comece hoje mesmo
 
 <div class="plans">
 
-  <button class="carousel-arrow arrow-left" onclick="moverPlano(-1)">❮</button>
-
   <div class="plans-track" id="plansTrack">
 
-    <div class="plan">
-      <h3>STANDARD - 60 Mbps</h3>
-      <div class="price">R$69,99</div>
-      <p>Ideal para uso básico.</p>
-      <a class="btn" onclick="contratar('60 Mbps')">Assinar Agora</a>
-    </div>
+<div class="plan popular active">
+  <div class="badge">🔥 MAIS VENDIDO</div>
+  <h3>PLANO VIP - 500 Mbps</h3>
+  <div class="price">R$99,99</div>
+  <p>Alta performance para jogos, streaming 4K e trabalho remoto.</p>
+  <p><strong>Plano preferido dos clientes exigentes.</strong></p>
+  <p style="color:#00bfff;font-weight:600;">✔ Instalação mais solicitada da semana</p>
+  <a class="btn" onclick="contratar('500 Mbps')">Assinar Agora</a>
+</div>
 
-    <div class="plan">
-      <h3>PLANO BÁSICO - 80 Mbps</h3>
-      <div class="price">R$89,99</div>
-      <p>Perfeito para famílias conectadas.</p>
-      <a class="btn" onclick="contratar('80 Mbps')">Assinar Agora</a>
-    </div>
+<div class="plan">
+  <div class="badge">⚡ OFERTA LIMITADA</div>
+  <h3>PLANO ULTRA - 600 Mbps</h3>
+  <div class="price">R$119,99</div>
+  <p>Velocidade exclusiva promocional disponível apenas pelo site.</p>
+  <p style="color:#00bfff;font-weight:600;">🚀 Upgrade ideal para quem quer máximo desempenho</p>
+  <a class="btn" onclick="contratar('600 Mbps')">Assinar Agora</a>
+</div>
 
-    <div class="plan popular active">
-      <div class="badge">🔥 MAIS VENDIDO</div>
-      <h3>PLANO VIP - 500 Mbps</h3>
-      <div class="price">R$99,99</div>
-      <p>Alta performance para jogos, streaming 4K e trabalho remoto.</p>
-      <p><strong>Plano preferido dos clientes exigentes.</strong></p>
-      <p style="color:#00bfff;font-weight:600;">✔ Instalação mais solicitada da semana</p>
-      <a class="btn" onclick="contratar('500 Mbps')">Assinar Agora</a>
-    </div>
+<div class="plan">
+  <h3>PLANO LUXO - 700 Mbps</h3>
+  <div class="price">R$169,99</div>
+  <p>Máxima velocidade para quem exige o melhor.</p>
+  <a class="btn" onclick="contratar('700 Mbps')">Assinar Agora</a>
+</div>
 
-    <div class="plan">
-      <div class="badge">⚡ OFERTA LIMITADA</div>
-      <h3>PLANO ULTRA - 600 Mbps</h3>
-      <div class="price">R$119,99</div>
-      <p>Velocidade exclusiva promocional disponível apenas pelo site.</p>
-      <p style="color:#00bfff;font-weight:600;">🚀 Upgrade ideal para quem quer máximo desempenho</p>
-      <a class="btn" onclick="contratar('600 Mbps')">Assinar Agora</a>
-    </div>
+<div class="plan">
+  <h3>PLANO BÁSICO - 80 Mbps</h3>
+  <div class="price">R$89,99</div>
+  <p>Perfeito para famílias conectadas.</p>
+  <a class="btn" onclick="contratar('80 Mbps')">Assinar Agora</a>
+</div>
 
-    <div class="plan">
-      <h3>PLANO LUXO - 700 Mbps</h3>
-      <div class="price">R$169,99</div>
-      <p>Máxima velocidade para quem exige o melhor.</p>
-      <a class="btn" onclick="contratar('700 Mbps')">Assinar Agora</a>
-    </div>
+<div class="plan">
+  <h3>STANDARD - 60 Mbps</h3>
+  <div class="price">R$69,99</div>
+  <p>Ideal para uso básico.</p>
+  <a class="btn" onclick="contratar('60 Mbps')">Assinar Agora</a>
+</div>
 
-  </div> <!-- FIM plans-track -->
-
-  <button class="carousel-arrow arrow-right" onclick="moverPlano(1)">❯</button>
-
-</div> <!-- FIM plans -->
+</div>
+</div>
 </section>
 
 <section class="simulador">
@@ -749,62 +695,6 @@ Clientes que contratam 500mbps ou mais o aparelho inclui tecnologia 5G. </p>
 
 <script>
 
-/* CARROSSEL LOOP SUAVE (SEM CLONES) */
-const track = document.getElementById("plansTrack");
-let planos = Array.from(document.querySelectorAll(".plan"));
-let indexPlano = 2; // começa no plano central (500mbps)
-
-/* SWIPE MOBILE + DRAG MOUSE */
-let startX = 0;
-let isDown = false;
-
-track.addEventListener("mousedown", e=>{
-  isDown = true;
-  startX = e.pageX;
-});
-
-track.addEventListener("mouseup", e=>{
-  if(!isDown) return;
-  let diff = e.pageX - startX;
-  if(diff > 50) moverPlano(-1);
-  if(diff < -50) moverPlano(1);
-  isDown = false;
-});
-
-track.addEventListener("touchstart", e=>{
-  startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchend", e=>{
-  let diff = e.changedTouches[0].clientX - startX;
-  if(diff > 50) moverPlano(-1);
-  if(diff < -50) moverPlano(1);
-});
-
-function atualizarCarousel(){
-  planos.forEach(p=>p.classList.remove("active"));
-  if(planos[indexPlano]){
-    planos[indexPlano].classList.add("active");
-  }
-
-  const offset = planos[indexPlano].offsetLeft - (track.parentElement.clientWidth / 2) + (planos[indexPlano].clientWidth / 2);
-  track.style.transform = `translateX(${-offset}px)`;
-}
-
-function moverPlano(direcao){
-  indexPlano += direcao;
-
-  if(indexPlano < 0){
-    indexPlano = planos.length - 1;
-  }
-  if(indexPlano >= planos.length){
-    indexPlano = 0;
-  }
-
-  atualizarCarousel();
-}
-
-
 function contratar(plano){
   const mensagem = encodeURIComponent("Quero contratar o plano de " + plano);
   const url = "https://wa.me/5511979957192?text=" + mensagem;
@@ -899,11 +789,6 @@ function revelarSections(){
 
 window.addEventListener("scroll", revelarSections);
 window.addEventListener("load", revelarSections);
-document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    atualizarCarousel();
-  });
-});
 
 
 /* PARTICLES */
@@ -970,4 +855,3 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
-
