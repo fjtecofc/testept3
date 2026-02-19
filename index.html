@@ -190,6 +190,7 @@ padding:40px 0; /* espaço para o efeito */
   transform:scale(1);
 cursor:grab;
 user-select:none;
+position: relative;
 }
 
 .plan.active{
@@ -223,6 +224,16 @@ font-weight:700;
 color:#000;
 box-shadow:0 0 25px #00bfff;
 z-index:10; /* garante que fique acima do card */
+}
+
+@keyframes pulseBadge{
+  0%{ transform:translateX(-50%) scale(1); }
+  50%{ transform:translateX(-50%) scale(1.08); }
+  100%{ transform:translateX(-50%) scale(1); }
+}
+
+.plans .plan:nth-child(2) .badge{
+  animation:pulseBadge 1.5s infinite;
 }
 
 .price{
